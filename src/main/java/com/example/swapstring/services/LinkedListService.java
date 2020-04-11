@@ -22,6 +22,7 @@ public class LinkedListService {
     }
 
     private void pairWiseSwap(){
+
         Node temp = head;
         while (temp != null && temp.next != null){
             /*Swap the data*/
@@ -49,6 +50,7 @@ public class LinkedListService {
     private String printList() 
     { 
         String result = "";
+        String encodedString="";
         Node temp = head; 
         while (temp != null) { 
             if (result == ""){
@@ -59,8 +61,11 @@ public class LinkedListService {
             
             temp = temp.next; 
         } 
-        head = null;
-        return result;
+        if (result != ""){
+            encodedString = Base64.getEncoder().encodeToString(result.getBytes());
+        }
+        head =null;
+        return encodedString;
     } 
 
 }
